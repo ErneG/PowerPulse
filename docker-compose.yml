@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+    frontend:
+        build:
+            context: ./frontend
+            args:
+                - next_public_api_url=${NEXT_PUBLIC_API_URL}
+        ports:
+            - "17321:3000"
+        depends_on:
+            - backend
+        networks:
+            - nginxproxymanager_nginx-proxy-manager-nw
+
+    backend:
+        build:
+            context: ./backend
+            args:
+                - frontend_url=${FRONTEND_URL}
+        ports:
+            - "17322:3008"
+        networks:
+            - nginxproxymanager_nginx-proxy-manager-nw
+
+networks:
+    nginxproxymanager_nginx-proxy-manager-nw:
+        external: true
