@@ -1,12 +1,12 @@
 export type Settings = {
-  themeToggleEnabled: boolean;
+    themeToggleEnabled: boolean;
 };
 
 export type Layout = {
-  heroHeader: string;
-  featureCards: string;
-  headers: {
+    heroHeader: string;
     featureCards: string;
-    features: string;
-  };
+    headers: {
+        featureCards: string;
+        features: string;
+    };
 };
