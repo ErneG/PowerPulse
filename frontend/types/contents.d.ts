@@ -1,3 +1,7 @@
+export type Settings = {
+    themeToggleEnabled: boolean;
+};
+
 export type HeroHeader = {
     header: string;
     subheader: string;
@@ -15,4 +19,13 @@ export type ContentSection = {
     subheader: string;
     image?: string;
     content: Array<Content>;
+};
+
+export type Layout = {
+    heroHeader: string;
+    featureCards: string;
+    headers: {
+        featureCards: string;
+        features: string;
+    };
 };

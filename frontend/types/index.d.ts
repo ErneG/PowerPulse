@@ -1,12 +1,2 @@
-export type Settings = {
-    themeToggleEnabled: boolean;
-};
-
-export type Layout = {
-    heroHeader: string;
-    featureCards: string;
-    headers: {
-        featureCards: string;
-        features: string;
-    };
-};
+export * from './chartData';
+export * from './contents';

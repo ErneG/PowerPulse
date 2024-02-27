@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import HeadingText from '@/components/heading-text';
-import { featureCards } from '@/config/contents';
+import { featureCards } from '@/config';
 import {
     Card,
     CardDescription,

@@ -40,4 +40,4 @@ const useFetchData = () => {
     return { data, error, loading };
 };
 
-export default useFetchData;
+export { useFetchData };

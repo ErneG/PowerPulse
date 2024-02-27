@@ -3,7 +3,7 @@
 import LineChart from './_components/LineChart';
 import HeadingText from '@/components/heading-text';
 import StatusCard from './_components/StatusCard';
-import useFetchData from '@/services/fetchData';
+import { useFetchData } from '@/services';
 
 const Dashboard = () => {
     const { data: chartData, error, loading } = useFetchData();

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
-import { settings } from '@/config/settings';
+import { settings } from '@/config';
 
 import { Button } from '@/components/ui/button';
 import {

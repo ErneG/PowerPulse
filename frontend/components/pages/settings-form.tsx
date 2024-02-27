@@ -21,16 +21,14 @@ import {
     group3FormInputs,
     group4FormInputs,
     group5FormInputs,
-} from '@/config/formInputConfig';
+} from '@/config';
 
 const generateFormSchema = (inputs: formInputProps[]) => {
     const schema: { [key: string]: z.ZodString } = {};
     inputs.forEach((input) => {
-        schema[input.inputName] = z
-            .string()
-            .min(1, {
-                message: `${input.inputLabel} is required`,
-            });
+        schema[input.inputName] = z.string().min(1, {
+            message: `${input.inputLabel} is required`,
+        });
     });
     return z.object(schema);
 };

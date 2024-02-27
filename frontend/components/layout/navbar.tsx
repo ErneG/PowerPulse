@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ModeToggle } from '@/components/mode-toggle';
 import { navLinks } from '@/lib/links';
-import { settings } from '@/config/settings';
+import { settings } from '@/config';
 import { Button } from '../ui/button';
 
 export default function Navbar() {
