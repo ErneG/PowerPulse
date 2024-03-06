@@ -1,5 +1,6 @@
 'use client';
 
+import { ChartDataProps } from '@/types';
 import {
     Chart as ChartJS,
     CategoryScale,

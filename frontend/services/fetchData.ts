@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+
+import { ChartDataProps } from '@/types';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const useFetchData = () => {
-    const [data, setData] = useState();
+    const [data, setData] = useState<ChartDataProps[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
