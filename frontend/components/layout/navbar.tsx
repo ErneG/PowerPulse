@@ -76,12 +76,12 @@ export default function Navbar() {
                         {navLinks.map((link, index) => (
                             <Button
                                 key={index}
+                                asChild
                                 variant="ghost"
-                                className="w-full ">
+                                className="w-full h-full">
                                 <Link
                                     href={link.path}
-                                    onClick={handleClick}
-                                    className="w-full">
+                                    onClick={handleClick}>
                                     {link.route}
                                 </Link>
                             </Button>
