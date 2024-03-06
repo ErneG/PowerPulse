@@ -5,7 +5,7 @@ const TextContentComponent: React.FC<{
     content: TextContent;
 }> = ({ content }) => {
     const renderContent = () => {
-        switch (content.type) {
+        switch (content.subType) {
             case 'paragraph':
                 return <p>{content.content}</p>;
             case 'header':
