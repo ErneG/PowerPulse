@@ -6,7 +6,12 @@ const ImageContentComponent: React.FC<{
     content: ImageContent;
 }> = ({ content }) => {
     return (
-        <Image src={content.src} alt={content.alt || 'Image'} />
+        <Image
+            src={content.src}
+            alt={content.alt || 'Image'}
+            width={300}
+            height={200}
+        />
     );
 };
 

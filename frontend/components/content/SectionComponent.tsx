@@ -3,16 +3,18 @@ import TextContentComponent from './TextContentComponent';
 import ImageContentComponent from './ImageContentComponent';
 import ListContentComponent from './ListContentComponent';
 
-import { WebPageSection, ContentType, ListItem } from '@/types';
+import {
+    WebPageSection,
+    SectionContent,
+    ListItem,
+} from '@/types';
 
 const SectionComponent: React.FC<{
     section: WebPageSection;
 }> = ({ section }) => {
-    const renderContent = (content: ContentType) => {
+    const renderContent = (content: SectionContent) => {
         switch (content.type) {
-            case 'paragraph':
-            case 'header':
-            case 'subheader':
+            case 'text':
                 return (
                     <TextContentComponent
                         key={content.content}
@@ -26,7 +28,7 @@ const SectionComponent: React.FC<{
                         content={content}
                     />
                 );
-            case 'unorderedList':
+            case 'list':
                 return (
                     <ListContentComponent
                         key={content.items

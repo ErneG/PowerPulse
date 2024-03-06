@@ -10,12 +10,14 @@ export const mainPage: WebPage = {
                     layout: 'titleTopTextBottom',
                     contents: [
                         {
-                            type: 'header',
+                            type: 'text',
+                            subType: 'header',
                             content:
                                 'Smart Energy, Smarter Savings.',
                         },
                         {
-                            type: 'subheader',
+                            type: 'text',
+                            subType: 'subheader',
                             content:
                                 'Utilizing real-time data and predictive analytics, we buy low and sell high on your behalf, 24/7.',
                         },
@@ -35,12 +37,14 @@ export const mainPage: WebPage = {
                     layout: 'titleSideBySideText',
                     contents: [
                         {
-                            type: 'header',
+                            type: 'text',
+                            subType: 'header',
                             content:
                                 'Comprehensive Energy Solutions',
                         },
                         {
-                            type: 'paragraph',
+                            type: 'text',
+                            subType: 'paragraph',
                             content:
                                 'Explore our wide range of services designed to ensure you save on your energy bills while maximizing efficiency.',
                         },
