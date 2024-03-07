@@ -3,8 +3,13 @@ import Image from 'next/image';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { heroHeader } from '@/config';
+import { FaAngleDoubleDown } from 'react-icons/fa';
 
 export default function HeroHeader() {
+    const handleScroll = () => {
+        window.scrollBy(0, window.innerHeight);
+    };
+
     return (
         <section className="container flex flex-col gap-4 pb-12 pt-4 text-center lg:items-center lg:gap-8 lg:py-20">
             <div className="flex flex-1 flex-col items-center gap-4 text-center lg:gap-8">
@@ -16,12 +21,6 @@ export default function HeroHeader() {
                         {heroHeader.subheader}
                     </h2>
                 </div>
-                <Link
-                    href="/dashboard"
-                    target="_blank"
-                    className={`w-[10rem] ${cn(buttonVariants({ size: 'lg' }))}`}>
-                    Go to Dashboard
-                </Link>
             </div>
             {heroHeader.image !== '' ? (
                 <div className="flex flex-1 justify-center lg:justify-end">
@@ -33,6 +32,12 @@ export default function HeroHeader() {
                     />
                 </div>
             ) : null}
+            <div className="animate-bounce">
+                <FaAngleDoubleDown
+                    className="text-6xl"
+                    onClick={handleScroll}
+                />
+            </div>
         </section>
     );
 }
