@@ -10,7 +10,10 @@ import {
     Title,
     Tooltip,
     Legend,
+    BarElement,
+    BarController,
 } from 'chart.js';
+
 import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -21,6 +24,8 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
+    BarController,
+    BarElement,
 );
 
 const LineChart = ({ data }: { data: ChartDataProps[] }) => {
@@ -48,7 +53,7 @@ const LineChart = ({ data }: { data: ChartDataProps[] }) => {
         responsive: true,
         plugins: {
             legend: {
-                position: 'top' as const,
+                display: false,
                 labels: {
                     boxWidth: 0,
                 },
@@ -59,19 +64,71 @@ const LineChart = ({ data }: { data: ChartDataProps[] }) => {
         },
     };
 
-    const labels = data.map((d) => d.hour);
-    const prices = data.map((d) => d.electricity_price);
-    const chartdata = {
-        labels,
-        datasets: [
-            {
-                label: ' ',
-                data: prices,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-        ],
-    };
-    return <Line options={options} data={chartdata} />;
+    // Take the last 24 data points
+    const latestDataPoints = data.slice(-24).map((item) => ({
+        x: item.hour,
+        y: item.electricity_price,
+        action: item.action,
+    }));
+
+    // Get the current hour
+    const currentHour = new Date().getHours();
+
+    // Highlight the current hour in the graph
+    const datasets = latestDataPoints
+        .slice(0, -1)
+        .map((point, index) => {
+            let color;
+            switch (point.action) {
+                case 'BUY':
+                    color = 'green';
+                    break;
+                case 'SELL':
+                    color = 'red';
+                    break;
+                case 'HOLD':
+                    color = 'blue';
+                    break;
+                default:
+                    color = 'black';
+            }
+
+            // // If the current hour matches the hour of the data point, change the color
+            // if (
+            //     parseInt(point.x.split(':')[0]) === currentHour
+            // ) {
+            //     color = 'yellow';
+            // }
+            // If the current hour matches the hour of the data point, increase the point radius
+            let pointRadius = 2;
+            if (
+                parseInt(point.x.split(':')[0]) === currentHour
+            ) {
+                pointRadius = 6;
+            }
+            return {
+                label: point.x,
+                data: [point, latestDataPoints[index + 1]],
+                borderColor: color,
+                pointBackgroundColor: color,
+                fill: false,
+                showLine: true,
+                pointRadius: pointRadius,
+            };
+        });
+
+    return (
+        <div>
+            <Line
+                options={options}
+                data={{
+                    labels: latestDataPoints.map(
+                        (point) => point.x,
+                    ),
+                    datasets: datasets,
+                }}
+            />
+        </div>
+    );
 };
 export default LineChart;
