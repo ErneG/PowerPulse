@@ -4,6 +4,7 @@ import LineChart from './_components/LineChart';
 import HeadingText from '@/components/heading-text';
 import { useFetchData } from '@/services';
 import { ImSpinner2 } from 'react-icons/im';
+import Legend from './_components/Legend';
 
 const Dashboard = () => {
     const { data, error, loading } = useFetchData();
@@ -25,6 +26,7 @@ const Dashboard = () => {
                     </HeadingText>
                     <div className="w-full lg:w-1/2">
                         <LineChart data={data} />
+                        <Legend />
                     </div>
                 </div>
             );
