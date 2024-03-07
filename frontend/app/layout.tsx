@@ -42,7 +42,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${inter.className} flex min-h-screen flex-col bg-background text-primary`}>
+                className={`${inter.className} flex flex-col bg-background text-primary h-screen w-full`}>
                 {settings.themeToggleEnabled ? (
                     <ThemeProvider
                         attribute="class"
