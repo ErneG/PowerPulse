@@ -2,7 +2,6 @@
 
 import LineChart from './_components/LineChart';
 import HeadingText from '@/components/heading-text';
-import StatusCard from './_components/StatusCard';
 import { useFetchData } from '@/services';
 import { ImSpinner2 } from 'react-icons/im';
 
@@ -27,7 +26,6 @@ const Dashboard = () => {
                     <div className="w-full lg:w-1/2">
                         <LineChart data={data} />
                     </div>
-                    <StatusCard data={data} />
                 </div>
             );
         }
