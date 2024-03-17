@@ -1,17 +1,18 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import { heroHeader } from '@/config';
 import { FaAngleDoubleDown } from 'react-icons/fa';
 
 export default function HeroHeader() {
     const handleScroll = () => {
-        window.scrollBy(0, window.innerHeight);
+        window.scrollBy({
+            top: window.innerHeight,
+            left: 0,
+            behavior: 'smooth',
+        });
     };
 
     return (
-        <section className="container flex flex-col gap-4 pb-12 pt-4 text-center lg:items-center lg:gap-8 lg:py-20">
+        <section className="container flex flex-col gap-4 pt-4 text-center items-center lg:gap-8 lg:py-20  h-[calc(100vh - 64px)]">
             <div className="flex flex-1 flex-col items-center gap-4 text-center lg:gap-8">
                 <div className="space-y-4">
                     <h1 className="text-4xl font-bold lg:text-6xl">
@@ -23,7 +24,7 @@ export default function HeroHeader() {
                 </div>
             </div>
             {heroHeader.image !== '' ? (
-                <div className="flex flex-1 justify-center lg:justify-end">
+                <div className="flex justify-center lg:justify-end">
                     <Image
                         src={heroHeader.image}
                         width={500}
