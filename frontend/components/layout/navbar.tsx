@@ -15,7 +15,7 @@ export default function Navbar() {
     };
 
     return (
-        <header className="select-none">
+        <header className="select-none" id="navbar">
             <nav className="mx-auto justify-between px-4 md:flex md:items-center md:px-8 lg:max-w-7xl ">
                 <div className="flex items-center justify-between py-3 md:block md:py-5">
                     <Link href="/" onClick={handleClick}>
