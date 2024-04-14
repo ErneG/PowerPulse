@@ -7,8 +7,4 @@ export const navLinks = [
         route: 'Dashboard',
         path: '/dashboard',
     },
-    {
-        route: 'Learn more',
-        path: '/learnmore',
-    },
 ];
