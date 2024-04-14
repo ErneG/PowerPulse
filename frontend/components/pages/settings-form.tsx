@@ -61,14 +61,14 @@ export default function SettingsForm() {
     return (
         <Form {...form}>
             {/* <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4 py-8 sm:w-[24rem]"> */}
-            <form className="w-full space-y-4 py-8 sm:w-[24rem]">
+            <form className="w-full space-y-4 py-8 grid grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
                 {allFormInputs.map((item, index) => (
                     <FormField
                         key={index}
                         control={form.control}
                         name={item.inputName}
                         render={({ field }) => (
-                            <FormItem>
+                            <FormItem className=" h-full align-bottom justify-end ">
                                 <FormLabel>
                                     {item.inputLabel}
                                 </FormLabel>
@@ -85,7 +85,9 @@ export default function SettingsForm() {
                         )}
                     />
                 ))}
-                <Button className="w-full" type="submit">
+                <Button
+                    className="w-full md:col-span-3"
+                    type="submit">
                     Submit
                 </Button>
             </form>
