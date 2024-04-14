@@ -8,9 +8,7 @@ import { settings } from '@/config';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-    metadataBase: new URL(
-        'https://powerpulse.mihaildanilov.com/',
-    ),
+    metadataBase: new URL('https://powerpulse.ernests.dev'),
     title: {
         default: 'PowerPulse',
         template: `%s | 'PowerPulse',`,
@@ -26,7 +24,7 @@ export const metadata = {
         'PostgreSQL',
     ],
 
-    creator: 'Mihails Danilovs',
+    creator: 'Ernests Dane',
     icons: {
         icon: './favicon.ico',
     },
@@ -42,7 +40,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${inter.className} flex flex-col bg-background text-primary h-screen w-full`}>
+                className={`${inter.className} flex  min-h-screen flex-col bg-background text-primary`}>
                 {settings.themeToggleEnabled ? (
                     <ThemeProvider
                         attribute="class"

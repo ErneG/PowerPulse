@@ -2,7 +2,7 @@ import { HeroHeader, ContentSection } from '@/types/contents';
 
 export const heroHeader: HeroHeader = {
     header: `Smart Energy, Smarter Savings.`,
-    subheader: `Elevating Household Energy Savings to the Next Level`,
+    subheader: `Maximize returns from your home energy storage.`,
     image: `/hero-img.webp`,
 };
 
