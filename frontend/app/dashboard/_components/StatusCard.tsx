@@ -1,5 +1,7 @@
 'use client';
 
+import { ChartDataProps } from '@/types';
+
 const StatusCard = ({ data }: { data: ChartDataProps[] }) => {
     const findCurrentAction = (data: ChartDataProps[]) => {
         const now = new Date();
