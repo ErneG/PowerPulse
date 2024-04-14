@@ -22,6 +22,7 @@ import {
     group4FormInputs,
     group5FormInputs,
 } from '@/config';
+import { useState } from 'react';
 
 const generateFormSchema = (inputs: formInputProps[]) => {
     const schema: { [key: string]: z.ZodString } = {};
@@ -52,11 +53,19 @@ export default function SettingsForm() {
         ),
     });
 
-    // function onSubmit(values: z.infer<typeof formSchema>) {
-    //   //TODO Post request to server
-    //   console.log(values);
-    //   form.reset();
-    // }
+    const [buttonTitle, setButtonTitle] = useState('Submit');
+
+    const handleClick = (
+        e: React.MouseEvent<HTMLButtonElement>,
+    ) => {
+        e.preventDefault();
+        setButtonTitle(
+            'This button does not actually do anything :).',
+        );
+        setTimeout(() => {
+            setButtonTitle('Submit');
+        }, 3000);
+    };
 
     return (
         <Form {...form}>
@@ -87,8 +96,12 @@ export default function SettingsForm() {
                 ))}
                 <Button
                     className="w-full md:col-span-3"
-                    type="submit">
-                    Submit
+                    type="submit"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleClick(e);
+                    }}>
+                    {buttonTitle}
                 </Button>
             </form>
         </Form>

@@ -22,13 +22,18 @@ const Dashboard = () => {
         else {
             return (
                 <div className="flex flex-col items-center">
-                    <HeadingText subtext="">
+                    <HeadingText subtext="Here is the functionality of the theoretical, virtual system based on the most recent 24 hours of available electricity prices.">
                         Dashboard
                     </HeadingText>
                     <div className="w-screen lg:w-3/4 ">
                         <LineChart data={data} />
+                        <Legend />
+                        <HeadingText
+                            subtext="These are some settings are used to configure the system."
+                            className="pt-20">
+                            Control panel
+                        </HeadingText>
                         <div className="px-10">
-                            <Legend />
                             <SettingsForm />
                         </div>
                     </div>
